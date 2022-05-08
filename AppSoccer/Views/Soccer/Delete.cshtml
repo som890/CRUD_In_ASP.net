@@ -1,0 +1,62 @@
+﻿@model AppSoccer.Models.Soccer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Soccer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoGo)
+        </dt>
+
+      <!--  <dd>
+          @Html.DisplayFor(model => model.LoGo)
+         
+        </dd>
+          -->
+    <dd>
+        <img src="~/Upload/images/@Model.LoGo"/>
+    </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCauThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCauThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

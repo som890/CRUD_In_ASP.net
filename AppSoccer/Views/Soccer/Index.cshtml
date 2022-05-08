@@ -1,0 +1,56 @@
+﻿@model IEnumerable<AppSoccer.Models.Soccer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoGo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoCauThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDoi)
+        </td>
+       <!-- <td>
+            @Html.DisplayFor(modelItem => item.LoGo)
+        </td>
+           -->
+        <td>
+            <img style="width:50px; height:50px;" src="~/Upload/images/@item.LoGo"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoCauThu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
